@@ -3,15 +3,12 @@ boto3
 dataclasses_json
 jsonnet
 pandas
-git+https://github.com/allenai/longformer.git@encoderdecoder
-git+ssh://git@github.com/allenai/pys2.git
-git+ssh://git@github.com/ibeltagy/pytorch-lightning.git@v0.8.5_fixes
+git+https://github.com/allenai/longformer.git@55c1f5f75d6f33b7ee23af0caf0392a52f8d4f4c
 rouge_score
 scikit-learn
 spacy
-git+ssh://git@github.com/allenai/s2base2.git
 torch
 tqdm
 git+http://github.com/ibeltagy/transformers.git@longformer_encoder_decoder#egg=transformers
 https://s3-us-west-2.amazonaws.com/ai2-s2-scispacy/releases/v0.2.5/en_core_sci_sm-0.2.5.tar.gz
-git+ssh://git@github.com/allenai/s2base2.git
+#git+https://github.com/ibeltagy/pytorch-lightning.git@v0.8.5_fixes

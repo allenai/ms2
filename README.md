@@ -15,6 +15,7 @@ conda activate scimon
 
 You will need to install these packages:
 ```
+conda install pytorch torchvision torchaudio cudatoolkit=10.2 -c pytorch
 pip install -r requirements.txt
 wget https://ai2-s2-research.s3-us-west-2.amazonaws.com/longformer/longformer-encdec-base-16384.tar.gz
 wget https://ai2-s2-research.s3-us-west-2.amazonaws.com/longformer/longformer-encdec-large-16384.tar.gz
@@ -51,7 +52,7 @@ training_root="place to store model artificats"
 EPOCHS=8      # more doesn't seem to do much
 GRAD_ACCUM=16 # if using 2x RTX8000, otherwise set for batch sizes of 32
 MODEL_NAME=   # options are facebook/bart-base, facebook/bart-large, /path/to/longformer/base, /path/to/longformer/large
-python scimon/models/transformer_summarizer.py \
+python litreviews/models/transformer_summarizer.py \
     --train $training_reviews_file \
     --val $validation_reviews_file \
     --training_root $training_dir \
