@@ -10,9 +10,9 @@ import torch
 
 from sklearn.metrics import classification_report, confusion_matrix
 from scipy.spatial.distance import jensenshannon
-from scimon.models.evidence_inference_models import initialize_models
-from scimon.models.utils import rouge_scores
-from scimon.utils import (
+from ms2.models.evidence_inference_models import initialize_models
+from ms2.models.utils import rouge_scores
+from ms2.utils import (
     get_tokenizer,
     EXTRA_TOKENS,
     SEP_TOKEN,

@@ -3,9 +3,9 @@ import json
 import logging
 import torch
 
-#from scimon.data.review_datasets import ReviewDataset
-from scimon.data.review_datasets import ReviewDataset, ToUnflattenedModelInputsFunction
-from scimon.models.transformer_summarizer import LightningBartSummarizer
+#from ms2.data.review_datasets import ReviewDataset
+from ms2.data.review_datasets import ReviewDataset, ToUnflattenedModelInputsFunction
+from ms2.models.transformer_summarizer import LightningBartSummarizer
 
 logging.basicConfig(format='%(asctime)s %(message)s', level=logging.INFO)
 

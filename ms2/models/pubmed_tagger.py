@@ -31,7 +31,7 @@ from sklearn.metrics import classification_report
 from torch.utils.data import Dataset, DataLoader
 from transformers import BertModel, BertTokenizerFast
 
-from scimon.models.utils import PaddedSequence
+from ms2.models.utils import PaddedSequence
 
 logging.basicConfig(format='%(asctime)s %(message)s', level=logging.DEBUG)
 

@@ -10,7 +10,7 @@ import torch.nn as nn
 
 from transformers import RobertaForSequenceClassification, RobertaTokenizer, PretrainedConfig
 
-from scimon.models.utils import PaddedSequence
+from ms2.models.utils import PaddedSequence
 
 def initialize_models(params: dict, unk_token='<unk>'):
     max_length = params['max_length']

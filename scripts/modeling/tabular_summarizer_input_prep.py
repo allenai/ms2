@@ -19,7 +19,7 @@ from collections import defaultdict
 from dataclasses import asdict
 from typing import Dict, List, Set, Tuple
 
-from scimon.utils import (
+from ms2.utils import (
     get_tokenizer,
     Review,
     TargetReference,
