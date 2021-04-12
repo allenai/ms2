@@ -30,9 +30,9 @@ from pytorch_lightning.core.lightning import LightningModule
 from longformer import LongformerEncoderDecoderForConditionalGeneration, LongformerEncoderDecoderConfig
 from longformer.sliding_chunks import pad_to_window_size
 
-from scimon.data.review_datasets import ReviewDataset, ToUnflattenedModelInputsFunction
-from scimon.models.utils import rouge_scores
-from scimon.utils import get_tokenizer
+from ms2.data.review_datasets import ReviewDataset, ToUnflattenedModelInputsFunction
+from ms2.models.utils import rouge_scores
+from ms2.utils import get_tokenizer
 
 logging.basicConfig(format='%(asctime)s %(message)s', level=logging.INFO)
 

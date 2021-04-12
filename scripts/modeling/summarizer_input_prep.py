@@ -13,8 +13,8 @@ from typing import List, Optional, Set, Tuple
 
 import tqdm
 
-from scimon.data.munge import fields_re, spaces_re
-from scimon.utils import (
+from ms2.data.munge import fields_re, spaces_re
+from ms2.utils import (
     get_tokenizer,
     Review,
     Study,

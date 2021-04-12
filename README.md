@@ -8,9 +8,9 @@ All commands are assumed to be run in the same terminal session, so variables su
 
 You might wish to create a conda env:
 ```
-conda create -n scimon python=3.8
-# or conda create -p scimon python=3.8
-conda activate scimon
+conda create -n ms2 python=3.8
+# or conda create -p ms2 python=3.8
+conda activate ms2
 ```
 
 You will need to install these packages:
@@ -94,7 +94,7 @@ python scripts/modeling/consistency_scorer.py --model_outputs $f --output $f.sco
 
 ### Evidence Inference
 
-This section uses a modified version of the evidence inference dataset that discards the comparator. Clone evidence inference fom the [scimon tag](https://github.com/jayded/evidence-inference/releases/tag/scimon). Once installing the requirements.txt file, the models may be trained via:
+This section uses a modified version of the evidence inference dataset that discards the comparator. Clone evidence inference fom the [ms2 tag](https://github.com/jayded/evidence-inference/releases/tag/ms2). Once installing the requirements.txt file, the models may be trained via:
 ```
 python evidence_inference/models/pipeline.py --params params/sampling_abstracts/bert_pipeline_8samples.json --output_dir $evidence_inference_dir
 ```

@@ -9,8 +9,8 @@ import torch
 
 from torch.utils.data import Dataset
 
-from scimon.utils import TargetReference, TargetSummary
-from scimon.models.utils import pad_tensors
+from ms2.utils import TargetReference, TargetSummary
+from ms2.models.utils import pad_tensors
 
 random.seed(12345)
 # TODO allow reading from disk

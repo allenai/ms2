@@ -17,7 +17,7 @@ import multiprocessing
 from dataclasses import asdict
 from typing import List
 
-from scimon.utils import (
+from ms2.utils import (
     get_tokenizer,
     Review,
     TargetReference,

@@ -3,7 +3,7 @@ import json
 
 from sklearn.metrics import classification_report, confusion_matrix
 
-from scimon.utils import (
+from ms2.utils import (
     EXTRA_TOKENS,
     SEP_TOKEN,
 )
