@@ -21,6 +21,17 @@ wget https://ai2-s2-research.s3-us-west-2.amazonaws.com/longformer/longformer-en
 wget https://ai2-s2-research.s3-us-west-2.amazonaws.com/longformer/longformer-encdec-large-16384.tar.gz
 ```
 
+You will need to download the data, either from [https://ai2-s2-ms2.s3-us-west-2.amazonaws.com/ms_data_2021-04-12.zip](https://ai2-s2-ms2.s3-us-west-2.amazonaws.com/ms_data_2021-04-12.zip) or from the s3 bucket `s3 aws cp s3://ai2-s2-ms2/ms_data_2021-04-12.zip ./`
+In either case, checksums should be:
+
+```
+sha1sum ms_data_2021-04-12.zip
+6090fbea367c7c52a4c3a9418591792d8dea90e7  ms_data_2021-04-12.zip
+
+md5sum ms_data_2021-04-12.zip
+7cf243af2373ad496d948fc73d7dcf31  ms_data_2021-04-12.zip
+```
+
 ### Input Prep
 
 The first step is to convert model inputs for the summarizer. This converts the review structure into tensorized versions of inputs and outputs; either text or table inputs or outputs. The primary versions of interest are the text-to-text version and the table-to-table versions. See [sample.json](sample.json) for an example of the raw inputs.
