@@ -1,6 +1,6 @@
-### Repository for SciMON Code
+### Repository for MS^2 Code
 
-SciMON is a dataset containing medical systematic reviews, their constituent studies, and a large amount of related markup. This repository contains code for attempting to produce summaries from this data.
+MS^2 is a dataset containing medical systematic reviews, their constituent studies, and a large amount of related markup. This repository contains code for attempting to produce summaries from this data.
 
 All commands are assumed to be run in the same terminal session, so variables such as `PYTHONPATH` are assumed to be carried between components.
 
@@ -30,7 +30,7 @@ This will need to be repeated for each subset:
 input_subset=...
 output_reviews_file=...
 MAX_LENGTH="--max_length 500"
-# Run from either the SciMON root or specify the path of the SciMON repository.
+# Run from either the ms2 root or specify the path of the ms2 repository.
 export PYTHONPATH=./
 # text-text version
 python scripts/modeling/summarizer_input_prep.py --input $input_subset --output $output_reviews_file --tokenizer facebook/bart-base $MAX_LENGTH"
