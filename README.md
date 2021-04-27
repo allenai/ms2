@@ -1,8 +1,10 @@
-### Repository for MS^2 Code
+## MS^2: Multi-Document Summarization of Medical Studies
 
-MS^2 is a dataset containing medical systematic reviews, their constituent studies, and a large amount of related markup. This repository contains code for attempting to produce summaries from this data.
+MS^2 is a dataset containing medical systematic reviews, their constituent studies, and a large amount of related markup. This repository contains code for attempting to produce summaries from this data. To find out more about how we created this dataset, please read our [preprint](https://arxiv.org/abs/2104.06486).
 
-All commands are assumed to be run in the same terminal session, so variables such as `PYTHONPATH` are assumed to be carried between components.
+This dataset is created as an annotated subset of the Semantic Scholar research corpus. MS^2 is licensed under the following license agreement: [Semantic Scholar API and Dataset License Agreement](http://s2-public-api-prod.us-west-2.elasticbeanstalk.com/corpus/legal/)
+
+All following commands are assumed to be run in the same terminal session, so variables such as `PYTHONPATH` are assumed to be carried between components.
 
 ### Set Up
 
@@ -108,4 +110,19 @@ python scripts/modeling/consistency_scorer.py --model_outputs $f --output $f.sco
 This section uses a modified version of the evidence inference dataset that discards the comparator. Clone evidence inference fom the [ms2 tag](https://github.com/jayded/evidence-inference/releases/tag/ms2). Once installing the requirements.txt file, the models may be trained via:
 ```
 python evidence_inference/models/pipeline.py --params params/sampling_abstracts/bert_pipeline_8samples.json --output_dir $evidence_inference_dir
+```
+
+### Citation
+
+If using this dataset, please cite:
+
+```
+@misc{deyoung2021ms2,
+  title={MS2: Multi-Document Summarization of Medical Studies}, 
+  author={Jay DeYoung and Iz Beltagy and Madeleine van Zuylen and Bailey Kuehl and Lucy Lu Wang},
+  year={2021},
+  eprint={2104.06486},
+  archivePrefix={arXiv},
+  primaryClass={cs.CL}
+}
 ```
