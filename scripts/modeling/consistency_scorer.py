@@ -183,7 +183,9 @@ def main():
         classifier_file = os.path.join(args.evidence_inference_dir, 'unconditioned_evidence_classifier', 'unconditioned_evidence_classifier.pt')
     else:
         classifier_file = os.path.join(args.evidence_inference_dir, 'evidence_classifier', 'evidence_classifier.pt')
-    evidence_inference_classifier.load_state_dict(torch.load(classifier_file))
+    #evidence_inference_classifier.load_state_dict(torch.load(classifier_file))
+    # pooler parameters are added by default in an older transformers, so we have to ignore that those are uninitialized.
+    evidence_inference_classifier.load_state_dict(torch.load(classifier_file), strict=False)
     evidence_inference_classifier.cuda()
 
     entailment_results = entailment_scores(evidence_inference_classifier, evidence_inference_tokenizer, generated, targets, preambles, use_ios=not args.unconditioned_classifier)

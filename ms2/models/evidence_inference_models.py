@@ -76,7 +76,7 @@ class BertClassifier(nn.Module):
                  num_labels: int,
                  max_length: int=512,
                  use_half_precision=False,
-                 config=Optional[PretrainedConfig]):
+                 config: Optional[PretrainedConfig]=None):
         super(BertClassifier, self).__init__()
         if bert_dir is None:
             assert config is not None
