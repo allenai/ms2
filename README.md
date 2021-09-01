@@ -61,11 +61,11 @@ All model training uses the same script. Run with `--help` for all options. This
 ```
 training_reviews_file="result of input prep"
 validation_reviews_file="result of input prep"
-training_root="place to store model artificats"
+training_root="place to store model artifacts"
 EPOCHS=8      # more doesn't seem to do much
 GRAD_ACCUM=16 # if using 2x RTX8000, otherwise set for batch sizes of 32
 MODEL_NAME=   # options are facebook/bart-base, facebook/bart-large, /path/to/longformer/base, /path/to/longformer/large
-python litreviews/models/transformer_summarizer.py \
+python ms2/models/transformer_summarizer.py \
     --train $training_reviews_file \
     --val $validation_reviews_file \
     --training_root $training_dir \
