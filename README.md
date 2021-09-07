@@ -23,16 +23,25 @@ wget https://ai2-s2-research.s3-us-west-2.amazonaws.com/longformer/longformer-en
 wget https://ai2-s2-research.s3-us-west-2.amazonaws.com/longformer/longformer-encdec-large-16384.tar.gz
 ```
 
-You will need to download the data, either from [https://ai2-s2-ms2.s3-us-west-2.amazonaws.com/ms_data_2021-04-12.zip](https://ai2-s2-ms2.s3-us-west-2.amazonaws.com/ms_data_2021-04-12.zip) or from the s3 bucket `s3 aws cp s3://ai2-s2-ms2/ms_data_2021-04-12.zip ./`
-In either case, checksums should be:
+### Data & Checkpoints
 
-```
-sha1sum ms_data_2021-04-12.zip
-6090fbea367c7c52a4c3a9418591792d8dea90e7  ms_data_2021-04-12.zip
+| File        | Description | sha1        | md5         |
+| ----------- | ----------- | ----------- | ----------- |
+| [ms_data_2021-04-12.zip](https://ai2-s2-ms2.s3-us-west-2.amazonaws.com/ms_data_2021-04-12.zip)      | MS^2 Dataset Files | 6090fbea | 7cf243af |
+| [bart_base_ckpt_7.ckpt](https://ai2-s2-ms2.s3-us-west-2.amazonaws.com/bart_base_ckpt_7.ckpt)        | BART checkpoint | 9698478c | 4a0d5630 |
+| [longformer_base_ckpt_7.ckpt](https://ai2-s2-ms2.s3-us-west-2.amazonaws.com/longformer_base_ckpt_7.ckpt)        | Longformer (LED) checkpoint | 327f9f41 | 4558b0d4 |
+| [evidence_inference_models.zip](https://ai2-s2-ms2.s3-us-west-2.amazonaws.com/evidence_inference_models.zip)        | EI models | bc7fecdc | 2bc1bdaf |
+| [decoded.zip](https://ai2-s2-ms2.s3-us-west-2.amazonaws.com/decoded.zip)      |  | a9e023e2 | 0725f2a4 |
+| [decoded_with_scores.zip](https://ai2-s2-ms2.s3-us-west-2.amazonaws.com/decoded_with_scores.zip)      |  | 38715772 | 5808924e |
 
-md5sum ms_data_2021-04-12.zip
-7cf243af2373ad496d948fc73d7dcf31  ms_data_2021-04-12.zip
-```
+All files are on AWS S3, so you can also acquire them using the AWS cli, e.g. `aws s3 cp s3://ai2-s2-ms2/ms_data_2021-04-12.zip ./`
+
+[comment]: <> (```)
+[comment]: <> (sha1sum ms_data_2021-04-12.zip)
+[comment]: <> (6090fbea367c7c52a4c3a9418591792d8dea90e7  ms_data_2021-04-12.zip)
+[comment]: <> (md5sum ms_data_2021-04-12.zip)
+[comment]: <> (7cf243af2373ad496d948fc73d7dcf31  ms_data_2021-04-12.zip)
+[comment]: <> (```)
 
 ### Input Prep
 
