@@ -4,7 +4,7 @@ set -e
 set -x
 PYTHONPATH=$(readlink -e .):$PYTHONPATH
 export PYTHONPATH
-PYTHON=/home/deyoung.j/local/ms2_repro/bin/python
+PYTHON=$HOME/local/ms2_repro/bin/python
 set -o nounset
 set -o pipefail
 
@@ -34,12 +34,13 @@ function ckpt {
         fi
 }
 
-ARTIFACTS="/scratch/deyoung.j/ms2_repro/"
+mkdir $HOME/scratch
+ARTIFACTS="$HOME/scratch/ms2_repro/"
 OUTPUTS="$ARTIFACTS/outputs"
 
 MAX_LENGTH="--max_length 500"
-for subset in training validation testing ; do 
-    cmd="srun -p short -t 16:00:00 --mem 24G $PYTHON scripts/modeling/summarizer_input_prep.py --input /scratch/deyoung.j/ms2_repro/ms2_data/${subset}_reviews.jsonl --output $OUTPUTS/text_to_text/${subset}.jsonl  --tokenizer facebook/bart-base $MAX_LENGTH"
+for subset in training validation testing ; do
+    cmd="srun -p short -t 16:00:00 --mem 24G $PYTHON scripts/modeling/summarizer_input_prep.py --input $HOME/scratch/ms2_repro/ms2_data/${subset}_reviews.jsonl --output $OUTPUTS/text_to_text/${subset}.jsonl  --tokenizer facebook/bart-base $MAX_LENGTH"
     ckpt "$cmd" "text_to_text/$subset"
 done
 
@@ -106,7 +107,7 @@ wait
 
 training_dir=$OUTPUTS/text_to_text/training/longformer_base/
 # longformer, bart-large
-MODEL_NAME=/scratch/deyoung.j/ms2_repro/source_models/longformer-encdec-base-16384
+MODEL_NAME=$HOME/scratch/ms2_repro/source_models/longformer-encdec-base-16384
 cmd="srun -p frink --gres gpu:1 --mem=64G --cpus-per-task=16 \
     $PYTHON ms2/models/transformer_summarizer.py \
     --train $training_reviews_file \
