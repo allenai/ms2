@@ -126,12 +126,19 @@ python evidence_inference/models/pipeline.py --params params/sampling_abstracts/
 If using this dataset, please cite:
 
 ```
-@misc{deyoung2021ms2,
-  title={MS2: Multi-Document Summarization of Medical Studies}, 
-  author={Jay DeYoung and Iz Beltagy and Madeleine van Zuylen and Bailey Kuehl and Lucy Lu Wang},
-  year={2021},
-  eprint={2104.06486},
-  archivePrefix={arXiv},
-  primaryClass={cs.CL}
+@inproceedings{deyoung-etal-2021-ms,
+    title = "{MS}{\^{}}2: Multi-Document Summarization of Medical Studies",
+    author = "DeYoung, Jay  and
+      Beltagy, Iz  and
+      van Zuylen, Madeleine  and
+      Kuehl, Bailey  and
+      Wang, Lucy Lu",
+    booktitle = "Proceedings of the 2021 Conference on Empirical Methods in Natural Language Processing",
+    month = nov,
+    year = "2021",
+    address = "Online and Punta Cana, Dominican Republic",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2021.emnlp-main.594",
+    pages = "7494--7513"
 }
 ```
