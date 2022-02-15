@@ -2,3 +2,7 @@
 *.pyc
 .vscode
 /data
+.DS_Store
+.idea/
+evaluator/.DS_Store
+ms2.egg-info/
