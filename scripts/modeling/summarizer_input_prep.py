@@ -242,6 +242,7 @@ def total_decoding_lengths(summary: TargetSummary) -> int:
 def main():
     parser = argparse.ArgumentParser(description='Convert Reviews into TargetSummary objects')
     parser.add_argument('--input', required=True, help='jsonl serialized input reviews')
+    parser.add_argument('--intermediate', required=False, help='file for target texts')
     parser.add_argument('--output', required=True, help='file for jsonl serialized output targets')
     parser.add_argument('--tokenizer_save', required=False, default=None, help='Where should we save the tokenizer to?')
     parser.add_argument('--tokenizer', required=True, help='tokenizer type, e.g. BART')
@@ -276,6 +277,21 @@ def main():
         logging.info(f'After processing, a total of {len(non_empty_reviews)} reviews are left, with {len(tensorized_reviews)} reviews for input')
         review_target_lengths = list(p.map(total_decoding_lengths, tensorized_reviews))
         review_reference_lengths = list(p.map(total_reference_lengths, tensorized_reviews))
+
+    # output inputs/targets for evaluation
+    if args.intermediate is not None:
+        logging.info('Saving intermediate targets for evaluation...')
+        with open(args.intermediate, 'w') as outf:
+            for review in tqdm.tqdm(non_empty_reviews):
+                json.dump({
+                    "docid": review.s2id,
+                    "sha": review.s2hash,
+                    "preface": review.preface,
+                    "target": review.target_texts[0],
+                    "references": [ref.to_dict() for ref in review.references]
+                }, outf)
+                outf.write('\n')
+
     total_lengths = [sum(x) for x in zip(review_reference_lengths, review_target_lengths)]
     min_length = min(total_lengths)
     max_length = max(total_lengths)
