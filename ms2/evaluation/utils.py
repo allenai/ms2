@@ -124,7 +124,7 @@ def f1_score(model, evidence_inference_tokenizer, generateds, targets, preambles
         )
     res = classification_report(np.array([mapping[x] for x in summary_preds]),
                                 np.array([mapping[x] for x in generated_preds]), target_names=labels, output_dict=True,
-                                digits=4)
+                                labels=list(range(len(labels))), digits=4)
     return res
 
 
