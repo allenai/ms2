@@ -45,6 +45,7 @@ def main():
             logging.info('Generated: {}'.format(generated))
             logging.info('Target:    {}'.format(target))
             output.write(json.dumps({
+                'docid': instance.s2id,
                 'preamble': model.tokenizer.decode(preambles.squeeze()),
                 'generated': generated,
                 'target': target,

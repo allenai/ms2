@@ -22,7 +22,7 @@ class ReviewDataset(Dataset):
     #* a representation of the review question + a partial summary/conclusion state
     #* the target next word to generate
 
-    Instance = namedtuple('Instance', ['refs', 'preface', 'target'])
+    Instance = namedtuple('Instance', ['refs', 'preface', 'target', 's2id'])
 
     def __init__(self, data: List[TargetSummary], format_function):
         super(ReviewDataset).__init__()
@@ -50,11 +50,14 @@ class ReviewDataset(Dataset):
             preface = torch.LongTensor(summary.preface) if summary.preface is not None and len(summary.preface) > 0 else torch.LongTensor([0])
             references = list(map(tensorize_reference, summary.references))
             target_texts = list(map(torch.LongTensor, summary.target_texts))
+            s2id = summary.s2id
+
             return replace(
                 summary,
                 preface=preface,
                 target_texts=target_texts,
                 references=references,
+                s2id=s2id
             )
 
         summaries = TargetSummary.read_summaries(f)
@@ -62,24 +65,26 @@ class ReviewDataset(Dataset):
         return ReviewDataset(summaries, format_function)
  
     @staticmethod
-    def to_flattened_model_inputs(instance: TargetSummary) -> List[Tuple[torch.Tensor, torch.Tensor, torch.Tensor]]:
+    def to_flattened_model_inputs(instance: TargetSummary) -> List[Tuple[torch.Tensor, torch.Tensor, torch.Tensor, str]]:
         # TODO this is a dumb concatenation. be smarter. add separators or something.
         ref_texts = torch.cat([ref.title_abstract for ref in instance.references], dim=0)
         preface = instance.preface
+        s2id = instance.s2id
         ret = []
         for txt in instance.target_texts:
-            ret.append(ReviewDataset.Instance(ref_texts, preface, txt))
+            ret.append(ReviewDataset.Instance(ref_texts, preface, txt, s2id))
         return ret
 
 class ToUnflattenedModelInputsFunction(object):
     def __init__(self, padding_value):
         self.padding_value = padding_value
 
-    def __call__(self, instance: TargetSummary) -> List[Tuple[torch.Tensor, torch.Tensor, torch.Tensor]]:
+    def __call__(self, instance: TargetSummary) -> List[Tuple[torch.Tensor, torch.Tensor, torch.Tensor, str]]:
         ref_texts = [ref.title_abstract for ref in instance.references]
         ref_texts = pad_tensors(ref_texts, padding_value=self.padding_value)
         preface = instance.preface
+        s2id = instance.s2id
         ret = []
         for txt in instance.target_texts:
-            ret.append((ReviewDataset.Instance(ref_texts, preface, txt)))
+            ret.append((ReviewDataset.Instance(ref_texts, preface, txt, s2id)))
         return ret
