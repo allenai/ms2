@@ -55,13 +55,13 @@ MAX_LENGTH="--max_length 500"
 # Run from either the ms2 root or specify the path of the ms2 repository.
 export PYTHONPATH=./
 # text-text version
-python scripts/modeling/summarizer_input_prep.py --input $input_subset --output $output_reviews_file --tokenizer facebook/bart-base $MAX_LENGTH"
+python scripts/modeling/summarizer_input_prep.py --input $input_subset --output $output_reviews_file --tokenizer facebook/bart-base $MAX_LENGTH
 # table-table version
-python scripts/modeling/tabular_summarizer_input_prep.py --input $input_subset --output $output_reviews_file --tokenizer facebook/bart-base $MAX_LENGTH"
+python scripts/modeling/tabular_summarizer_input_prep.py --input $input_subset --output $output_reviews_file --tokenizer facebook/bart-base $MAX_LENGTH
 # text-table version
-python scripts/modeling/text_to_table_input_prep.py --input $input_subset --output $output_reviews_file --tokenizer facebook/bart-base $MAX_LENGTH"
+python scripts/modeling/text_to_table_input_prep.py --input $input_subset --output $output_reviews_file --tokenizer facebook/bart-base $MAX_LENGTH
 # table-text version
-python scripts/modeling/table_to_text_summarizer_input.py --input $input_subset --output $output_reviews_file --tokenizer facebook/bart-base $MAX_LENGTH"
+python scripts/modeling/table_to_text_summarizer_input.py --input $input_subset --output $output_reviews_file --tokenizer facebook/bart-base $MAX_LENGTH
 ```
 
 ### Modeling
