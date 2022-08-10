@@ -1,5 +1,9 @@
 ## MS^2: Multi-Document Summarization of Medical Studies
 
+**Note: This dataset is now part of the [MSLR2022 Shared Task](https://github.com/allenai/mslr-shared-task). We encourage you to use the data as modified for the task: available [here](https://github.com/allenai/mslr-shared-task#dataset-access). There is also a leaderboard for this task, available [here](https://leaderboard.allenai.org/mslr-ms2/submissions/public).**
+
+### Description
+
 MS^2 is a dataset containing medical systematic reviews, their constituent studies, and a large amount of related markup. This repository contains code for attempting to produce summaries from this data. To find out more about how we created this dataset, please read our [preprint](https://arxiv.org/abs/2104.06486).
 
 This dataset is created as an annotated subset of the Semantic Scholar research corpus. MS^2 is licensed under the following license agreement: [Semantic Scholar API and Dataset License Agreement](http://s2-public-api-prod.us-west-2.elasticbeanstalk.com/corpus/legal/)
