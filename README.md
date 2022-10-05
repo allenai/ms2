@@ -29,6 +29,10 @@ wget https://ai2-s2-research.s3-us-west-2.amazonaws.com/longformer/longformer-en
 
 ### Data & Checkpoints
 
+**We encourage you to use the cleaned up data files provided [here](https://github.com/allenai/mslr-shared-task#dataset-access)**
+
+The original data and model files associated with the paper are linked below.
+
 | File        | Description | sha1        | md5         |
 | ----------- | ----------- | ----------- | ----------- |
 | [ms_data_2021-04-12.zip](https://ai2-s2-ms2.s3-us-west-2.amazonaws.com/ms_data_2021-04-12.zip)      | MS^2 Dataset Files | 6090fbea | 7cf243af |
@@ -38,7 +42,7 @@ wget https://ai2-s2-research.s3-us-west-2.amazonaws.com/longformer/longformer-en
 | [decoded.zip](https://ai2-s2-ms2.s3-us-west-2.amazonaws.com/decoded.zip)      |  | a9e023e2 | 0725f2a4 |
 | [decoded_with_scores.zip](https://ai2-s2-ms2.s3-us-west-2.amazonaws.com/decoded_with_scores.zip)      |  | 38715772 | 5808924e |
 
-All files are on AWS S3, so you can also acquire them using the AWS cli, e.g. `aws s3 cp s3://ai2-s2-ms2/ms_data_2021-04-12.zip ./`
+All files are on AWS S3, so you can also acquire them using the AWS cli, e.g. `aws s3 cp s3://ai2-s2-ms2/ms_data_2021-04-12.zip $LOCALDIR/ms2_data/`
 
 [comment]: <> (```)
 [comment]: <> (sha1sum ms_data_2021-04-12.zip)
